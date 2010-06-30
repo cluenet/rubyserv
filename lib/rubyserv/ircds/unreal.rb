@@ -8,7 +8,7 @@ class RubyServ
       end
 
       def on_line(prefix, command, *args)
-        if command.downcase == "eos"
+        if command.upcase == "EOS"
           raw("TSCTL SVSTIME #{Time.now.to_i}")
           raw(":#{config[:ircd][:server]} SMO o :\002(\002Burst\002)\002 [#{config[:ircd][:server]}] End of Incoming NetBurst.")
         else
